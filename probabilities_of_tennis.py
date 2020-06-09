@@ -1,3 +1,6 @@
+"""
+Values a,b can be between 0 - 4 which represent tennis points "Love", "15", "30", "40", and "Game"
+"""
 memo_for_games = {}
 def probability_of_game(a,b,p):    
     
@@ -29,6 +32,9 @@ def probability_of_game(a,b,p):
         memo_for_games[(a,b,p)] = temp_prob
     return temp_prob
 
+"""
+Values a,b in a tiebreaker represent points 0 - 7 where 7 is the winning point
+"""
 memo_for_tie_breaker = {}
 def probability_of_tie_break(a,b,pa,pb,server = True):
     
@@ -61,6 +67,9 @@ def probability_of_tie_break(a,b,pa,pb,server = True):
             memo_for_tie_breaker[(a,b,pa,pb,server)] = temp_prob
             return temp_prob
 
+"""
+Values ga, gb can be between 0 - 6 representing the number of games in a set where 6 denotes winning the set
+"""
 memo_for_set = {}    
 def probability_of_set(ga,gb,a,b,pa,pb,server = True):
     
@@ -92,6 +101,9 @@ def probability_of_set(ga,gb,a,b,pa,pb,server = True):
             memo_for_set[(ga,gb,a,b,pa,pb,server)] = temp_prob
             return temp_prob
 
+"""
+Values sa, sb can be between 0 - 3 for a 3 set match or 0 - 5 for a 5 set match where 3 or 5 denotes winning the match
+"""
 memo_for_match = {}    
 def probability_of_match(sets,sa,sb,ga,gb,a,b,pa,pb,server = True):
     if sets == 5:
@@ -125,6 +137,3 @@ def probability_of_match(sets,sa,sb,ga,gb,a,b,pa,pb,server = True):
             temp_prob = probability_of_set(ga,gb,a,b,pa,pb,server = False)*probability_of_match(sets,sa,sb+1,ga,gb,a,b,pa,pb,server) + (1-probability_of_set(ga,gb,a,b,pa,pb,server = False))*probability_of_match(sets,sa+1,sb,ga,gb,a,b,pa,pb,server)
             memo_for_match[(sets,sa,sb,ga,gb,a,b,pa,pb,server)] = temp_prob
             return temp_prob
-
-
-
