@@ -132,7 +132,7 @@ def probability_of_match(sets,sa,sb,ga,gb,a,b,pa,pb,server = True):
             
     elif (sa+sb)%2!=0:
         if (sets,sa,sb,ga,gb,a,b,pa,pb,server) in memo_for_match:
-            return memo_for_match[(sets,sa,sb,ga,gb,a,b)]
+            return memo_for_match[(sets,sa,sb,ga,gb,a,b,pa,pb,server)]
         else:
             temp_prob = probability_of_set(ga,gb,a,b,pa,pb,server = False)*probability_of_match(sets,sa,sb+1,ga,gb,a,b,pa,pb,server) + (1-probability_of_set(ga,gb,a,b,pa,pb,server = False))*probability_of_match(sets,sa+1,sb,ga,gb,a,b,pa,pb,server)
             memo_for_match[(sets,sa,sb,ga,gb,a,b,pa,pb,server)] = temp_prob
