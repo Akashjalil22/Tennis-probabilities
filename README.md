@@ -26,4 +26,4 @@ We use a memo (a dictionary) to store probabilities already calculated as this w
 the recursions used to calculate the probabilities. 
 
 # Update on memoization
-The probabilites_of_tennis_new file contains a different, but more pythonic, way of implementing memoization by using the lru_cache function as a decorator for the different probability calculations.
+The probabilites_of_tennis_new.py file contains a different, but more pythonic, way of implementing memoization by using the lru_cache function from functools as a decorator.
