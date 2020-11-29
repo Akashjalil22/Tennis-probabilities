@@ -23,4 +23,7 @@ We'll need to pay close attention to the type of match being modelled. So, if we
 
 # Memoization for recursion functions
 We use a memo (a dictionary) to store probabilities already calculated as this will speed up
-the recursions used to calculate the probabilities
+the recursions used to calculate the probabilities. 
+
+# Update on memoization
+The probabilites_of_tennis_new file contains a different, but more pythonic, way of implementing memoization by using the lru_cache function as a decorator for the different probability calculations.
